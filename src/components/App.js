@@ -1,12 +1,12 @@
 import React from "react";
-import Footer from "./Footer.js";
-import Main from "./Main.js";
+import Header from "./Header.js";
+import Countries from "./Countries.js";
 
 const App = () => {
     return (
         <div className="content">
-            <Main/>
-            <Footer/>
+            <Header/>
+            <Countries/>
         </div>
     );
 }
