@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "./Header.js";
-import Countries from "./Countries.js";
+import Meme from "./Meme.js";
 
 const App = () => {
     return (
         <div className="content">
             <Header/>
-            <Countries/>
+            <Meme />
         </div>
     );
 }
