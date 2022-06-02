@@ -15,7 +15,7 @@ const Meme = () => {
     const [allMemeImages, setAllMemeImages] = React.useState(memesList)
     
 
-    let getRandomMeme = () => {
+    const getRandomMeme = () => {
         let number = Math.round(Math.random(memesArr.length)*100);
         urlChange(prev => (
             {
@@ -24,16 +24,24 @@ const Meme = () => {
             }));
     }
 
+    const handleChanger = (e) => {
+        const {name, value} = e.target;
+        urlChange(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
     return (
         <>
             <div className="form">
                 <div className="input-wrapper">
-                    <input placeholder="first part" className="form__input"/>
-                    <input placeholder="second part" className="form__input"/>
+                    <input onChange={handleChanger} name="topText" value={url.topText} placeholder="first part" className="form__input"/>
+                    <input onChange={handleChanger} name="bottomText" value={url.bottomText} placeholder="second part" className="form__input"/>
                 </div>
                 <button onClick={getRandomMeme}className="form__button">Get a new meme image</button>
             </div>
-            <Image img={url.randomImage}/>
+            <Image top={url.topText} bottom={url.bottomText} img={url.randomImage}/>
         </>
         
     )
