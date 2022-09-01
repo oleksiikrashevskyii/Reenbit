@@ -2,6 +2,38 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/Account.js":
+/*!***********************************!*\
+  !*** ./src/components/Account.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Account)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _assets_avatar_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/avatar.png */ "./src/assets/avatar.png");
+/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Logo */ "./src/components/Logo.js");
+
+
+
+function Account(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    profilePhoto: _assets_avatar_png__WEBPACK_IMPORTED_MODULE_1__
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "header_input-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "header_input",
+    placeholder: "Search or start new chat"
+  })));
+}
+
+/***/ }),
+
 /***/ "./src/components/App.js":
 /*!*******************************!*\
   !*** ./src/components/App.js ***!
@@ -14,145 +46,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Die__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Die */ "./src/components/Die.js");
-/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nanoid */ "./node_modules/nanoid/index.browser.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-confetti'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
+/* harmony import */ var _Chats__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Chats */ "./src/components/Chats.js");
+/* harmony import */ var _Person__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Person */ "./src/components/Person.js");
 
 
 
 
 function App() {
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(allNewDice()),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      dice = _React$useState2[0],
-      setDice = _React$useState2[1];
-
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(false),
-      _React$useState4 = _slicedToArray(_React$useState3, 2),
-      tenzies = _React$useState4[0],
-      setTenzies = _React$useState4[1];
-
-  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
-    var allHeld = dice.every(function (die) {
-      return die.isHeld;
-    });
-    var firstValue = dice[0].value;
-    var allSameValue = dice.every(function (die) {
-      return die.value === firstValue;
-    });
-
-    if (allHeld && allSameValue) {
-      setTenzies(true);
-    }
-  }, [dice]);
-
-  function generateNewDie() {
-    return {
-      value: Math.ceil(Math.random() * 6),
-      isHeld: false,
-      id: (0,nanoid__WEBPACK_IMPORTED_MODULE_3__.nanoid)()
-    };
-  }
-
-  function allNewDice() {
-    var newDice = [];
-
-    for (var i = 0; i < 10; i++) {
-      newDice.push(generateNewDie());
-    }
-
-    return newDice;
-  }
-
-  function rollDice() {
-    if (!tenzies) {
-      setDice(function (oldDice) {
-        return oldDice.map(function (die) {
-          return die.isHeld ? die : generateNewDie();
-        });
-      });
-    } else {
-      setTenzies(false);
-      setDice(allNewDice());
-    }
-  }
-
-  function _holdDice(id) {
-    setDice(function (oldDice) {
-      return oldDice.map(function (die) {
-        return die.id === id ? _objectSpread(_objectSpread({}, die), {}, {
-          isHeld: !die.isHeld
-        }) : die;
-      });
-    });
-  }
-
-  var diceElements = dice.map(function (die) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Die__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      key: die.id,
-      value: die.value,
-      isHeld: die.isHeld,
-      holdDice: function holdDice() {
-        return _holdDice(die.id);
-      }
-    });
-  });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, tenzies && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-confetti'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
-    className: "title"
-  }, "Tenzies"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "instructions"
-  }, "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "dice-container"
-  }, diceElements), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "roll-dice",
-    onClick: rollDice
-  }, tenzies ? "New Game" : "Roll"));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Chats__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Person__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 }
 
 /***/ }),
 
-/***/ "./src/components/Die.js":
-/*!*******************************!*\
-  !*** ./src/components/Die.js ***!
-  \*******************************/
+/***/ "./src/components/Chats.js":
+/*!*********************************!*\
+  !*** ./src/components/Chats.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Die)
+/* harmony export */   "default": () => (/* binding */ Chats)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Account__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Account */ "./src/components/Account.js");
+
+
+function Chats(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "chats"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Account__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+}
+
+/***/ }),
+
+/***/ "./src/components/Logo.js":
+/*!********************************!*\
+  !*** ./src/components/Logo.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Logo)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-function Die(props) {
-  var styles = {
-    backgroundColor: props.isHeld ? "#59E391" : "white"
-  };
+function Logo(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "die-face",
-    style: styles,
-    onClick: props.holdDice
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "die-num"
-  }, props.value));
+    className: "logo-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "logo",
+    src: props.profilePhoto
+  }));
+}
+
+/***/ }),
+
+/***/ "./src/components/Person.js":
+/*!**********************************!*\
+  !*** ./src/components/Person.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Person)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function Person(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null);
 }
 
 /***/ }),
@@ -171,12 +138,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../assets/search.png */ "./src/assets/search.png"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  background-color: #0B2434;\n  padding: 20px;\n  font-family: \"Karla\", sans-serif;\n}\n\nmain {\n  background-color: #F5F5F5;\n  height: 400px;\n  max-width: 800px;\n  border-radius: 5px;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.title {\n  font-size: 40px;\n  margin: 0;\n}\n\n.instructions {\n  font-family: \"Inter\", sans-serif;\n  font-weight: 400;\n  margin-top: 0;\n  text-align: center;\n}\n\n.dice-container {\n  display: grid;\n  grid-template: auto auto/repeat(5, 1fr);\n  gap: 20px;\n  margin-bottom: 40px;\n}\n\n.die-face {\n  height: 50px;\n  width: 50px;\n  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);\n  border-radius: 10px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n\n.die-num {\n  font-size: 2rem;\n}\n\n.roll-dice {\n  height: 50px;\n  width: 150px;\n  border: none;\n  border-radius: 6px;\n  background-color: #5035FF;\n  color: white;\n  font-size: 1.2rem;\n  font-family: \"Karla\", sans-serif;\n  cursor: pointer;\n}\n\n.roll-dice:focus {\n  outline: none;\n}\n\n.roll-dice:active {\n  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAAA;EACE,sBAAA;AACF;;AAEA;EACE,SAAA;EACA,yBAAA;EACA,aAAA;EACA,gCAAA;AACF;;AAEA;EACE,yBAAA;EACA,aAAA;EACA,gBAAA;EACA,kBAAA;EACA,aAAA;EACA,aAAA;EACA,sBAAA;EACA,6BAAA;EACA,mBAAA;AACF;;AAEA;EACE,eAAA;EACA,SAAA;AACF;;AAEA;EACE,gCAAA;EACA,gBAAA;EACA,aAAA;EACA,kBAAA;AACF;;AAEA;EACE,aAAA;EACA,uCAAA;EACA,SAAA;EACA,mBAAA;AACF;;AAEA;EACE,YAAA;EACA,WAAA;EACA,2CAAA;EACA,mBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,eAAA;AACF;;AAEA;EACE,eAAA;AACF;;AAEA;EACE,YAAA;EACA,YAAA;EACA,YAAA;EACA,kBAAA;EACA,yBAAA;EACA,YAAA;EACA,iBAAA;EACA,gCAAA;EACA,eAAA;AACF;;AAEA;EACE,aAAA;AACF;;AAEA;EACE,sDAAA;AACF","sourcesContent":["* {\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  background-color: #0B2434;\r\n  padding: 20px;\r\n  font-family: 'Karla', sans-serif;\r\n}\r\n\r\nmain {\r\n  background-color: #F5F5F5;\r\n  height: 400px;\r\n  max-width: 800px;\r\n  border-radius: 5px;\r\n  padding: 20px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-around;\r\n  align-items: center;\r\n}\r\n\r\n.title {\r\n  font-size: 40px;\r\n  margin: 0;\r\n}\r\n\r\n.instructions {\r\n  font-family: 'Inter', sans-serif;\r\n  font-weight: 400;\r\n  margin-top: 0;\r\n  text-align: center;\r\n}\r\n\r\n.dice-container {\r\n  display: grid;\r\n  grid-template: auto auto / repeat(5, 1fr);\r\n  gap: 20px;\r\n  margin-bottom: 40px;\r\n}\r\n\r\n.die-face {\r\n  height: 50px;\r\n  width: 50px;\r\n  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);\r\n  border-radius: 10px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  cursor: pointer;\r\n}\r\n\r\n.die-num {\r\n  font-size: 2rem;\r\n}\r\n\r\n.roll-dice {\r\n  height: 50px;\r\n  width: 150px;\r\n  border: none;\r\n  border-radius: 6px;\r\n  background-color: #5035FF;\r\n  color: white;\r\n  font-size: 1.2rem;\r\n  font-family: 'Karla', sans-serif;\r\n  cursor: pointer;\r\n}\r\n\r\n.roll-dice:focus {\r\n  outline: none;\r\n}\r\n\r\n.roll-dice:active {\r\n  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  background-color: #0B2434;\n  padding: 20px;\n  font-family: \"Karla\", sans-serif;\n}\n\nmain {\n  position: absolute;\n  background-color: #F5F5F5;\n  height: 650px;\n  width: 1200px;\n  max-width: 1200px;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  left: 50%;\n}\n\n.chats {\n  width: 40%;\n}\n\n.header {\n  background-color: rgb(228, 228, 228);\n  border-right: 1px solid rgb(204, 204, 204);\n  border-bottom: 1px solid rgb(204, 204, 204);\n  padding: 15px;\n}\n.header_input {\n  width: 100%;\n  position: relative;\n  border: 1px solid rgb(204, 204, 204);\n  margin-top: 20px;\n  padding: 10px;\n  font-weight: 500;\n  border-radius: 20px;\n  outline: none;\n  padding-left: 30px;\n}\n.header_input-wrapper {\n  position: relative;\n}\n.header_input-wrapper::before {\n  content: \"\";\n  display: block;\n  position: absolute;\n  left: 10px;\n  top: 30px;\n  width: 15px;\n  height: 15px;\n  z-index: 1;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n\n.logo {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.logo-wrapper {\n  display: block;\n  position: relative;\n}\n.logo-wrapper::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  width: 15px;\n  height: 15px;\n  background-color: red;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAAA;EACE,sBAAA;AACF;;AAEA;EACE,SAAA;EACA,yBAAA;EACA,aAAA;EACA,gCAAA;AACF;;AAEA;EACE,kBAAA;EACA,yBAAA;EACA,aAAA;EACA,aAAA;EACA,iBAAA;EACA,QAAA;EACA,gCAAA;EACA,SAAA;AACF;;AAEA;EACE,UAAA;AACF;;AAEA;EACE,oCAAA;EACA,0CAAA;EACA,2CAAA;EACA,aAAA;AACF;AAAE;EACE,WAAA;EACA,kBAAA;EACA,oCAAA;EACA,gBAAA;EACA,aAAA;EACA,gBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;AAEJ;AAAE;EACE,kBAAA;AAEJ;AADI;EACE,WAAA;EACA,cAAA;EACA,kBAAA;EACA,UAAA;EACA,SAAA;EACA,WAAA;EACA,YAAA;EACA,UAAA;EACA,mDAAA;AAGN;;AAEA;EACE,WAAA;EACA,YAAA;EACA,kBAAA;AACF;;AAEA;EACE,cAAA;EACA,kBAAA;AACF;AAAE;EACE,WAAA;EACA,cAAA;EACA,kBAAA;EACA,QAAA;EACA,SAAA;EACA,WAAA;EACA,YAAA;EACA,qBAAA;AAEJ","sourcesContent":["* {\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  background-color: #0B2434;\r\n  padding: 20px;\r\n  font-family: 'Karla', sans-serif;\r\n}\r\n\r\nmain {\r\n  position: absolute;\r\n  background-color: #F5F5F5;\r\n  height: 650px;\r\n  width: 1200px;\r\n  max-width: 1200px;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  left: 50%;\r\n}\r\n\r\n.chats {\r\n  width: 40%;\r\n}\r\n\r\n.header {\r\n  background-color: rgb(228, 228, 228);\r\n  border-right: 1px solid rgb(204, 204, 204);\r\n  border-bottom: 1px solid rgb(204, 204, 204);\r\n  padding: 15px;\r\n  &_input {\r\n    width: 100%;\r\n    position: relative;\r\n    border: 1px solid rgb(204, 204, 204);\r\n    margin-top: 20px;\r\n    padding: 10px;\r\n    font-weight: 500;\r\n    border-radius: 20px;\r\n    outline: none;\r\n    padding-left: 30px;\r\n  }\r\n  &_input-wrapper {\r\n    position: relative;\r\n    &::before {\r\n      content: '';\r\n      display: block;\r\n      position: absolute;\r\n      left: 10px;\r\n      top: 30px;\r\n      width: 15px;\r\n      height: 15px;\r\n      z-index: 1;\r\n      background: url('../assets/search.png');\r\n    }\r\n  }\r\n}\r\n\r\n.logo {\r\n  width: 50px;\r\n  height: 50px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.logo-wrapper {\r\n  display: block;\r\n  position: relative;\r\n  &::after {\r\n    content: '';\r\n    display: block;\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 0;\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n  }\r\n}\r\n\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -290,6 +262,44 @@ module.exports = function (cssWithMappingToString) {
   };
 
   return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    options = {};
+  }
+
+  if (!url) {
+    return url;
+  }
+
+  url = String(url.__esModule ? url.default : url); // If url is already wrapped in quotes, remove them
+
+  if (/^['"].*['"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+
+  if (options.hash) {
+    url += options.hash;
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
+  }
+
+  return url;
 };
 
 /***/ }),
@@ -33957,73 +33967,23 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./node_modules/nanoid/index.browser.js":
-/*!**********************************************!*\
-  !*** ./node_modules/nanoid/index.browser.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/assets/avatar.png":
+/*!*******************************!*\
+  !*** ./src/assets/avatar.png ***!
+  \*******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "customAlphabet": () => (/* binding */ customAlphabet),
-/* harmony export */   "customRandom": () => (/* binding */ customRandom),
-/* harmony export */   "nanoid": () => (/* binding */ nanoid),
-/* harmony export */   "random": () => (/* binding */ random),
-/* harmony export */   "urlAlphabet": () => (/* reexport safe */ _url_alphabet_index_js__WEBPACK_IMPORTED_MODULE_0__.urlAlphabet)
-/* harmony export */ });
-/* harmony import */ var _url_alphabet_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./url-alphabet/index.js */ "./node_modules/nanoid/url-alphabet/index.js");
-
-let random = bytes => crypto.getRandomValues(new Uint8Array(bytes))
-let customRandom = (alphabet, defaultSize, getRandom) => {
-  let mask = (2 << (Math.log(alphabet.length - 1) / Math.LN2)) - 1
-  let step = -~((1.6 * mask * defaultSize) / alphabet.length)
-  return (size = defaultSize) => {
-    let id = ''
-    while (true) {
-      let bytes = getRandom(step)
-      let j = step
-      while (j--) {
-        id += alphabet[bytes[j] & mask] || ''
-        if (id.length === size) return id
-      }
-    }
-  }
-}
-let customAlphabet = (alphabet, size = 21) =>
-  customRandom(alphabet, size, random)
-let nanoid = (size = 21) =>
-  crypto.getRandomValues(new Uint8Array(size)).reduce((id, byte) => {
-    byte &= 63
-    if (byte < 36) {
-      id += byte.toString(36)
-    } else if (byte < 62) {
-      id += (byte - 26).toString(36).toUpperCase()
-    } else if (byte > 62) {
-      id += '-'
-    } else {
-      id += '_'
-    }
-    return id
-  }, '')
-
-
+module.exports = __webpack_require__.p + "avatar.png";
 
 /***/ }),
 
-/***/ "./node_modules/nanoid/url-alphabet/index.js":
-/*!***************************************************!*\
-  !*** ./node_modules/nanoid/url-alphabet/index.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/assets/search.png":
+/*!*******************************!*\
+  !*** ./src/assets/search.png ***!
+  \*******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "urlAlphabet": () => (/* binding */ urlAlphabet)
-/* harmony export */ });
-let urlAlphabet =
-  'useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict'
-
-
+module.exports = __webpack_require__.p + "search.png";
 
 /***/ })
 
@@ -34056,6 +34016,9 @@ let urlAlphabet =
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -34079,6 +34042,18 @@ let urlAlphabet =
 /******/ 				}
 /******/ 			}
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -34106,6 +34081,52 @@ let urlAlphabet =
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"bundle": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -34129,4 +34150,4 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createEle
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle622f357b1b999189487b.js.map
+//# sourceMappingURL=bundlefe9f23780bafbc3e3b82.js.map
