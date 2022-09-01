@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/components/Account.js":
@@ -8,26 +7,36 @@
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Account)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _assets_avatar_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/avatar.png */ "./src/assets/avatar.png");
-/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Logo */ "./src/components/Logo.js");
+/* harmony import */ var _assets_profile_avatar_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/profile-avatar.png */ "./src/assets/profile-avatar.png");
+/* harmony import */ var _assets_search_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/search.png */ "./src/assets/search.png");
+/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Logo */ "./src/components/Logo.js");
+
 
 
 
 function Account(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    profilePhoto: _assets_avatar_png__WEBPACK_IMPORTED_MODULE_1__
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Logo__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    photo: _assets_profile_avatar_png__WEBPACK_IMPORTED_MODULE_1__
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "header_input-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "search",
+    src: _assets_search_png__WEBPACK_IMPORTED_MODULE_2__
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     className: "header_input",
+    type: "text",
+    onChange: function onChange(e) {
+      return props.whatToSearch(e.target.value);
+    },
     placeholder: "Search or start new chat"
   })));
 }
@@ -40,6 +49,7 @@ function Account(props) {
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ App)
@@ -48,12 +58,89 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Chats__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Chats */ "./src/components/Chats.js");
 /* harmony import */ var _Person__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Person */ "./src/components/Person.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
 function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Chats__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Person__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(false),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      currentUser = _React$useState2[0],
+      changeUser = _React$useState2[1];
+
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      sendingMessage = _React$useState4[0],
+      createNewMessage = _React$useState4[1];
+
+  function returnCurrentUser(user) {
+    changeUser(user);
+  }
+
+  function returnWrittenMessage(user) {
+    createNewMessage(user);
+  }
+
+  console.log(currentUser);
+  console.log(sendingMessage);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Chats__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    returnCurrentUser: returnCurrentUser,
+    currentUser: currentUser,
+    currentMessage: sendingMessage
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Person__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    returnWrittenMessage: returnWrittenMessage,
+    currentUserInfo: currentUser
+  }));
+}
+
+/***/ }),
+
+/***/ "./src/components/Chat.js":
+/*!********************************!*\
+  !*** ./src/components/Chat.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Chat)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Logo */ "./src/components/Logo.js");
+
+
+function Chat(props) {
+  var date = props.date.toDateString();
+  var a = date.split(' ').splice(1, 3);
+  var b = a.splice(2, 1);
+  var newFormat = a.join(' ') + ', ' + b.join(' ');
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    onClick: function onClick() {
+      return props.clicked(props);
+    },
+    className: "chat"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Logo__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    photo: props.photo
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "chat_info"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, props.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "chat_info-message"
+  }, props.messageList[props.messageList.length - 1])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "chat_date"
+  }, newFormat));
 }
 
 /***/ }),
@@ -64,6 +151,7 @@ function App() {
   \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Chats)
@@ -71,12 +159,189 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Account__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Account */ "./src/components/Account.js");
+/* harmony import */ var _Chat__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Chat */ "./src/components/Chat.js");
+/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! nanoid */ "./node_modules/nanoid/index.browser.js");
+/* harmony import */ var _assets_avatar0_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/avatar0.png */ "./src/assets/avatar0.png");
+/* harmony import */ var _assets_avatar1_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/avatar1.png */ "./src/assets/avatar1.png");
+/* harmony import */ var _assets_avatar2_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/avatar2.png */ "./src/assets/avatar2.png");
+/* harmony import */ var _assets_avatar3_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/avatar3.png */ "./src/assets/avatar3.png");
+/* harmony import */ var _assets_avatar4_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/avatar4.png */ "./src/assets/avatar4.png");
+/* harmony import */ var _assets_avatar5_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../assets/avatar5.png */ "./src/assets/avatar5.png");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
+
+
+
+
+
+
+
+
+
+var userBase = [{
+  name: 'Pablo Wood',
+  photo: _assets_avatar0_png__WEBPACK_IMPORTED_MODULE_3__,
+  messageList: [],
+  sendMessages: []
+}, {
+  name: 'Elise Collins',
+  photo: _assets_avatar1_png__WEBPACK_IMPORTED_MODULE_4__,
+  messageList: [],
+  sendMessages: []
+}, {
+  name: 'Dante Nelson',
+  photo: _assets_avatar2_png__WEBPACK_IMPORTED_MODULE_5__,
+  messageList: [],
+  sendMessages: []
+}, {
+  name: 'Donald Ross',
+  photo: _assets_avatar3_png__WEBPACK_IMPORTED_MODULE_6__,
+  messageList: [],
+  sendMessages: []
+}, {
+  name: 'Zelda King',
+  photo: _assets_avatar4_png__WEBPACK_IMPORTED_MODULE_7__,
+  messageList: [],
+  sendMessages: []
+}, {
+  name: 'Daniella Johnson',
+  photo: _assets_avatar5_png__WEBPACK_IMPORTED_MODULE_8__,
+  messageList: [],
+  sendMessages: []
+}];
 function Chats(props) {
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState([]),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      jokes = _React$useState2[0],
+      addNewJoke = _React$useState2[1];
+
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      currentSearch = _React$useState4[0],
+      changeSearch = _React$useState4[1];
+
+  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(new Date()),
+      _React$useState6 = _slicedToArray(_React$useState5, 2),
+      currentTime = _React$useState6[0],
+      changeTime = _React$useState6[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    userBase.forEach(function () {
+      generateRandomJoke();
+    });
+    userBase.forEach(function (val, index) {
+      val.messageList.push(jokes[index]);
+    });
+  }, [jokes.length === 5]);
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    userBase.forEach(function (val) {
+      if (props.currentUser.name === val.name) {
+        val.sendMessages.push(props.currentMessage);
+      }
+    });
+  }, [props.currentMessage]);
+
+  function searchAlgorithm(value) {
+    var chatArr = value.split('').map(function (val) {
+      return val.toLowerCase();
+    }).join('');
+    var searchArr = currentSearch.split('').map(function (val) {
+      return val.toLowerCase();
+    }).join('');
+    var index = chatArr.indexOf(searchArr);
+
+    if (index >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  var chats = userBase.filter(function (val) {
+    return !currentSearch || searchAlgorithm(val.name);
+  }).map(function (val) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Chat__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      key: (0,nanoid__WEBPACK_IMPORTED_MODULE_9__.nanoid)(),
+      date: currentTime,
+      clicked: props.returnCurrentUser,
+      sendMessages: val.sendMessages,
+      messageList: val.messageList,
+      name: val.name,
+      photo: val.photo
+    });
+  });
+
+  function generateRandomJoke() {
+    return _generateRandomJoke.apply(this, arguments);
+  }
+
+  function _generateRandomJoke() {
+    _generateRandomJoke = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var responce, data;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return fetch('https://api.chucknorris.io/jokes/random');
+
+            case 2:
+              responce = _context.sent;
+              _context.next = 5;
+              return responce.json();
+
+            case 5:
+              data = _context.sent;
+              addNewJoke(function (prev) {
+                return [].concat(_toConsumableArray(prev), [data.value]);
+              });
+
+            case 7:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+    return _generateRandomJoke.apply(this, arguments);
+  }
+
+  function setNewParametrs(value) {
+    changeSearch(value);
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "chats"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Account__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Account__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    whatToSearch: setNewParametrs
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "chats-headline"
+  }, "Chats"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "chats-wrapper"
+  }, chats));
 }
 
 /***/ }),
@@ -87,20 +352,83 @@ function Chats(props) {
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Logo)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _assets_check_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/check.png */ "./src/assets/check.png");
+
 
 function Logo(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "logo-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     className: "logo",
-    src: props.profilePhoto
+    src: props.photo
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "mark",
+    src: _assets_check_png__WEBPACK_IMPORTED_MODULE_1__
   }));
+}
+
+/***/ }),
+
+/***/ "./src/components/Message.js":
+/*!***********************************!*\
+  !*** ./src/components/Message.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AcceptMessage": () => (/* binding */ AcceptMessage),
+/* harmony export */   "SendMessage": () => (/* binding */ SendMessage)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function AcceptMessage(props) {
+  var date = new Date();
+  var year = date.getFullYear();
+  var newYear = ('' + year).split('').splice(2, 2).join('');
+  var month = date.getMonth();
+  var day = date.getDate();
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "message"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "message-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "message_photo",
+    src: props.photo.photo
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "message_text"
+  }, props.acceptMessage[props.acceptMessage.length - 1])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "message_date"
+  }, month + 1 + '/' + day + '/' + newYear + ', ' + hour + ':' + min));
+}
+function SendMessage(props) {
+  var date = new Date();
+  var year = date.getFullYear();
+  var newYear = ('' + year).split('').splice(2, 2).join('');
+  var month = date.getMonth();
+  var day = date.getDate();
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "message-send"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "message-wrapper-send"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "message_text-send"
+  }, props.sendMessage[props.sendMessage.length - 1])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "message_date-send"
+  }, month + 1 + '/' + day + '/' + newYear + ', ' + hour + ':' + min));
 }
 
 /***/ }),
@@ -111,15 +439,86 @@ function Logo(props) {
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Person)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Logo */ "./src/components/Logo.js");
+/* harmony import */ var _Message_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Message.js */ "./src/components/Message.js");
+/* harmony import */ var _assets_avatar_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/avatar.png */ "./src/assets/avatar.png");
+/* harmony import */ var _assets_paper_plane_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/paper-plane.png */ "./src/assets/paper-plane.png");
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_5__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
 
 function Person(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null);
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      typingMessage = _React$useState2[0],
+      changeMessage = _React$useState2[1];
+
+  function handleChange(e) {
+    changeMessage(e.target.value);
+  }
+
+  var page = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "person"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "person_header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Logo__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    photo: props.currentUserInfo.photo
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "person_name"
+  }, props.currentUserInfo.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "person_message-list"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Message_js__WEBPACK_IMPORTED_MODULE_2__.AcceptMessage, {
+    acceptMessage: props.currentUserInfo.messageList,
+    photo: props.currentUserInfo
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Message_js__WEBPACK_IMPORTED_MODULE_2__.SendMessage, {
+    sendMessage: props.currentUserInfo.sendMessages,
+    photo: props.currentUserInfo
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "person_send-message"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    onChange: handleChange,
+    value: typingMessage,
+    className: "type-message-btn",
+    placeholder: "Type your message"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    onClick: function onClick() {
+      props.returnWrittenMessage(typingMessage);
+      changeMessage('');
+    },
+    className: "type-message-link"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "type-message-icon",
+    src: _assets_paper_plane_png__WEBPACK_IMPORTED_MODULE_4__
+  }))));
+  return props.currentUserInfo ? page : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "message-after-load-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "message-after-load"
+  }, "Select a chat to start messaging"));
 }
 
 /***/ }),
@@ -130,6 +529,7 @@ function Person(props) {
   \***********************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -138,17 +538,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
-
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../assets/search.png */ "./src/assets/search.png"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  background-color: #0B2434;\n  padding: 20px;\n  font-family: \"Karla\", sans-serif;\n}\n\nmain {\n  position: absolute;\n  background-color: #F5F5F5;\n  height: 650px;\n  width: 1200px;\n  max-width: 1200px;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  left: 50%;\n}\n\n.chats {\n  width: 40%;\n}\n\n.header {\n  background-color: rgb(228, 228, 228);\n  border-right: 1px solid rgb(204, 204, 204);\n  border-bottom: 1px solid rgb(204, 204, 204);\n  padding: 15px;\n}\n.header_input {\n  width: 100%;\n  position: relative;\n  border: 1px solid rgb(204, 204, 204);\n  margin-top: 20px;\n  padding: 10px;\n  font-weight: 500;\n  border-radius: 20px;\n  outline: none;\n  padding-left: 30px;\n}\n.header_input-wrapper {\n  position: relative;\n}\n.header_input-wrapper::before {\n  content: \"\";\n  display: block;\n  position: absolute;\n  left: 10px;\n  top: 30px;\n  width: 15px;\n  height: 15px;\n  z-index: 1;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n\n.logo {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.logo-wrapper {\n  display: block;\n  position: relative;\n}\n.logo-wrapper::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  width: 15px;\n  height: 15px;\n  background-color: red;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAAA;EACE,sBAAA;AACF;;AAEA;EACE,SAAA;EACA,yBAAA;EACA,aAAA;EACA,gCAAA;AACF;;AAEA;EACE,kBAAA;EACA,yBAAA;EACA,aAAA;EACA,aAAA;EACA,iBAAA;EACA,QAAA;EACA,gCAAA;EACA,SAAA;AACF;;AAEA;EACE,UAAA;AACF;;AAEA;EACE,oCAAA;EACA,0CAAA;EACA,2CAAA;EACA,aAAA;AACF;AAAE;EACE,WAAA;EACA,kBAAA;EACA,oCAAA;EACA,gBAAA;EACA,aAAA;EACA,gBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;AAEJ;AAAE;EACE,kBAAA;AAEJ;AADI;EACE,WAAA;EACA,cAAA;EACA,kBAAA;EACA,UAAA;EACA,SAAA;EACA,WAAA;EACA,YAAA;EACA,UAAA;EACA,mDAAA;AAGN;;AAEA;EACE,WAAA;EACA,YAAA;EACA,kBAAA;AACF;;AAEA;EACE,cAAA;EACA,kBAAA;AACF;AAAE;EACE,WAAA;EACA,cAAA;EACA,kBAAA;EACA,QAAA;EACA,SAAA;EACA,WAAA;EACA,YAAA;EACA,qBAAA;AAEJ","sourcesContent":["* {\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  background-color: #0B2434;\r\n  padding: 20px;\r\n  font-family: 'Karla', sans-serif;\r\n}\r\n\r\nmain {\r\n  position: absolute;\r\n  background-color: #F5F5F5;\r\n  height: 650px;\r\n  width: 1200px;\r\n  max-width: 1200px;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  left: 50%;\r\n}\r\n\r\n.chats {\r\n  width: 40%;\r\n}\r\n\r\n.header {\r\n  background-color: rgb(228, 228, 228);\r\n  border-right: 1px solid rgb(204, 204, 204);\r\n  border-bottom: 1px solid rgb(204, 204, 204);\r\n  padding: 15px;\r\n  &_input {\r\n    width: 100%;\r\n    position: relative;\r\n    border: 1px solid rgb(204, 204, 204);\r\n    margin-top: 20px;\r\n    padding: 10px;\r\n    font-weight: 500;\r\n    border-radius: 20px;\r\n    outline: none;\r\n    padding-left: 30px;\r\n  }\r\n  &_input-wrapper {\r\n    position: relative;\r\n    &::before {\r\n      content: '';\r\n      display: block;\r\n      position: absolute;\r\n      left: 10px;\r\n      top: 30px;\r\n      width: 15px;\r\n      height: 15px;\r\n      z-index: 1;\r\n      background: url('../assets/search.png');\r\n    }\r\n  }\r\n}\r\n\r\n.logo {\r\n  width: 50px;\r\n  height: 50px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.logo-wrapper {\r\n  display: block;\r\n  position: relative;\r\n  &::after {\r\n    content: '';\r\n    display: block;\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 0;\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n  }\r\n}\r\n\r\n\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  box-sizing: border-box;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 400;\n}\n\n::-webkit-scrollbar {\n  border-radius: 5px;\n  width: 4px;\n  height: 4px;\n  background-color: rgb(204, 204, 204);\n  left: 100px;\n}\n\n::-webkit-scrollbar-button {\n  width: 0px;\n  height: 0px;\n}\n\n::-webkit-scrollbar-thumb {\n  border-radius: 5px;\n  background-color: rgb(165, 165, 165);\n}\n\nbody {\n  margin: 0;\n  background-color: rgb(186, 210, 218);\n  padding: 20px;\n  font-family: \"Karla\", sans-serif;\n}\n\nmain {\n  position: absolute;\n  display: flex;\n  box-shadow: 20px 15px 15px rgba(36, 36, 36, 0.2);\n  background-color: #F5F5F5;\n  height: 650px;\n  width: 1200px;\n  max-width: 1200px;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  left: 50%;\n}\n\n.header {\n  background-color: rgb(228, 228, 228);\n  border-bottom: 1px solid rgb(204, 204, 204);\n  padding: 15px;\n}\n.header_input {\n  width: 100%;\n  position: relative;\n  border: 1px solid rgb(204, 204, 204);\n  margin-top: 20px;\n  padding: 10px;\n  font-weight: 500;\n  border-radius: 20px;\n  outline: none;\n  padding-left: 30px;\n}\n.header_input-wrapper {\n  position: relative;\n}\n.header_input-wrapper .search {\n  position: absolute;\n  width: 15px;\n  left: 10px;\n  top: 30px;\n  z-index: 1;\n}\n\n.logo {\n  width: 50px;\n  height: 50px;\n  max-width: 100%;\n  border-radius: 50%;\n}\n\n.logo-wrapper {\n  display: block;\n  position: relative;\n  height: 20%;\n}\n.logo-wrapper .mark {\n  position: absolute;\n  top: 33px;\n  left: 37px;\n  width: 18px;\n}\n\n.chats {\n  width: 40%;\n  height: 100%;\n  overflow: hidden;\n  position: relative;\n  border-right: 1px solid rgb(204, 204, 204);\n}\n.chats-wrapper {\n  height: 58%;\n  overflow: auto;\n}\n.chats-headline {\n  padding: 40px 0px 40px 10px;\n  height: 20%;\n  font-size: 25px;\n  font-weight: 500;\n  color: rgb(79, 190, 235);\n}\n\n.chat {\n  padding: 20px 0px 20px 10px;\n  height: 90px;\n  display: flex;\n  position: relative;\n  border-bottom: 1px solid rgb(204, 204, 204);\n  transform: background-color 0.1s;\n}\n.chat:hover {\n  background-color: rgb(235, 235, 235);\n  cursor: pointer;\n}\n.chat_info {\n  margin-top: 10px;\n  margin-left: 20px;\n  position: relative;\n  letter-spacing: 0.05rem;\n}\n.chat_info-message {\n  margin: 0;\n  color: rgb(128, 128, 128);\n  letter-spacing: normal;\n  width: 300px;\n  -webkit-line-clamp: 1;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n  margin-top: 3px;\n  font-size: 13px;\n  font-weight: 300;\n}\n.chat_date {\n  position: absolute;\n  top: 30px;\n  font-size: 13px;\n  font-weight: 300;\n  right: 20px;\n}\n\n.person {\n  width: 60%;\n  position: relative;\n}\n.person_header {\n  display: flex;\n  align-items: center;\n  padding: 15px;\n  background-color: rgb(228, 228, 228);\n  border-bottom: 1px solid rgb(204, 204, 204);\n}\n.person_name {\n  margin-left: 15px;\n  font-size: 18px;\n  font-weight: 500;\n}\n.person .person_message-list {\n  height: 72%;\n  overflow: auto;\n}\n.person_send-message {\n  position: absolute;\n  background-color: rgb(228, 228, 228);\n  border-top: 1px solid rgb(204, 204, 204);\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  padding: 25px;\n}\n\n.type-message-btn {\n  width: 100%;\n  padding: 15px;\n  outline: none;\n  border: 1px solid rgb(204, 204, 204);\n  border-radius: 20px;\n}\n\n.type-message-link {\n  cursor: pointer;\n}\n\n.type-message-icon {\n  position: absolute;\n  top: 35px;\n  right: 40px;\n  height: 25px;\n}\n\n.message-after-load-wrapper {\n  width: 60%;\n}\n\n.message-after-load {\n  background-color: rgb(204, 204, 204);\n  position: absolute;\n  left: 70%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  border-radius: 20px;\n  padding: 10px;\n  transition: all 0.2s;\n}\n\n.message {\n  padding: 15px 10px;\n  max-width: 70%;\n}\n.message_photo {\n  width: 50px;\n  height: 50px;\n}\n.message_text {\n  color: white;\n  background-color: rgb(48, 47, 47);\n  padding: 13px 10px;\n  border-radius: 20px;\n  margin: 0;\n  margin-left: 10px;\n}\n.message_date {\n  color: rgb(128, 128, 128);\n  font-size: 13px;\n  font-weight: 300;\n  margin-left: 65px;\n}\n\n.message-wrapper {\n  display: flex;\n  margin-bottom: 5px;\n}\n\n.message-send {\n  margin-left: auto;\n  text-align: right;\n  padding: 15px 10px;\n  max-width: 70%;\n}\n\n.message_date-send {\n  color: rgb(128, 128, 128);\n  font-size: 13px;\n  font-weight: 300;\n  margin-right: 5px;\n}\n\n.message-wrapper-send {\n  display: flex;\n  justify-content: end;\n  text-align: right;\n}\n\n.message_text-send {\n  color: black;\n  margin-left: auto;\n  background-color: rgb(221, 221, 221);\n  padding: 13px 10px;\n  border-radius: 20px;\n  margin: 0;\n  margin-bottom: 5px;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAAA;EACE,sBAAA;EACA,iCAAA;EACA,gBAAA;AACF;;AAEA;EACE,kBAAA;EACA,UAAA;EACA,WAAA;EACA,oCAAA;EACA,WAAA;AACF;;AAEA;EACE,UAAA;EACA,WAAA;AACF;;AAEA;EACE,kBAAA;EACA,oCAAA;AACF;;AAEA;EACE,SAAA;EACA,oCAAA;EACA,aAAA;EACA,gCAAA;AACF;;AAEA;EACE,kBAAA;EACA,aAAA;EACA,gDAAA;EACA,yBAAA;EACA,aAAA;EACA,aAAA;EACA,iBAAA;EACA,QAAA;EACA,gCAAA;EACA,SAAA;AACF;;AAEA;EACE,oCAAA;EACA,2CAAA;EACA,aAAA;AACF;AAAE;EACE,WAAA;EACA,kBAAA;EACA,oCAAA;EACA,gBAAA;EACA,aAAA;EACA,gBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;AAEJ;AAAE;EACE,kBAAA;AAEJ;AADI;EACE,kBAAA;EACA,WAAA;EACA,UAAA;EACA,SAAA;EACA,UAAA;AAGN;;AAIA;EACE,WAAA;EACA,YAAA;EACA,eAAA;EAEA,kBAAA;AAFF;;AAMA;EACE,cAAA;EACA,kBAAA;EACA,WAAA;AAHF;AAKE;EACE,kBAAA;EACA,SAAA;EACA,UAAA;EACA,WAAA;AAHJ;;AASA;EACE,UAAA;EACA,YAAA;EACA,gBAAA;EACA,kBAAA;EACA,0CAAA;AANF;AAQE;EACE,WAAA;EACA,cAAA;AANJ;AASE;EACE,2BAAA;EACA,WAAA;EACA,eAAA;EACA,gBAAA;EACA,wBAAA;AAPJ;;AAYA;EACE,2BAAA;EACA,YAAA;EACA,aAAA;EACA,kBAAA;EACA,2CAAA;EACA,gCAAA;AATF;AAWE;EACE,oCAAA;EACA,eAAA;AATJ;AAYE;EACE,gBAAA;EACA,iBAAA;EACA,kBAAA;EACA,uBAAA;AAVJ;AAWI;EACE,SAAA;EACA,yBAAA;EACA,sBAAA;EACA,YAAA;EACA,qBAAA;EACA,oBAAA;EACA,4BAAA;EACA,gBAAA;EACA,eAAA;EACA,eAAA;EACA,gBAAA;AATN;AAaE;EACE,kBAAA;EACA,SAAA;EACA,eAAA;EACA,gBAAA;EACA,WAAA;AAXJ;;AAiBA;EACE,UAAA;EACA,kBAAA;AAdF;AAeE;EACE,aAAA;EACA,mBAAA;EACA,aAAA;EACA,oCAAA;EACA,2CAAA;AAbJ;AAgBE;EACE,iBAAA;EACA,eAAA;EACA,gBAAA;AAdJ;AAiBE;EACE,WAAA;EACA,cAAA;AAfJ;AAkBE;EACE,kBAAA;EACA,oCAAA;EACA,wCAAA;EACA,OAAA;EACA,SAAA;EACA,WAAA;EACA,aAAA;AAhBJ;;AAoBA;EACE,WAAA;EACA,aAAA;EACA,aAAA;EACA,oCAAA;EACA,mBAAA;AAjBF;;AAoBA;EACE,eAAA;AAjBF;;AAoBA;EACE,kBAAA;EACA,SAAA;EACA,WAAA;EACA,YAAA;AAjBF;;AAoBA;EACE,UAAA;AAjBF;;AAoBA;EACE,oCAAA;EACA,kBAAA;EACA,SAAA;EACA,QAAA;EACA,gCAAA;EACA,mBAAA;EACA,aAAA;EACA,oBAAA;AAjBF;;AAoBA;EACE,kBAAA;EACA,cAAA;AAjBF;AAkBE;EACE,WAAA;EACA,YAAA;AAhBJ;AAkBE;EACE,YAAA;EACA,iCAAA;EACA,kBAAA;EACA,mBAAA;EACA,SAAA;EACA,iBAAA;AAhBJ;AAkBE;EACE,yBAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;AAhBJ;;AAoBA;EACE,aAAA;EACA,kBAAA;AAjBF;;AAoBA;EACE,iBAAA;EACA,iBAAA;EACA,kBAAA;EACA,cAAA;AAjBF;;AAoBA;EACE,yBAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;AAjBF;;AAoBA;EACE,aAAA;EACA,oBAAA;EACA,iBAAA;AAjBF;;AAoBA;EACE,YAAA;EACA,iBAAA;EACA,oCAAA;EACA,kBAAA;EACA,mBAAA;EACA,SAAA;EACA,kBAAA;AAjBF","sourcesContent":["* {\r\n  box-sizing: border-box;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-weight: 400;\r\n}\r\n\r\n::-webkit-scrollbar { \r\n  border-radius: 5px;\r\n  width: 4px;\r\n  height: 4px;\r\n  background-color: rgb(204, 204, 204);\r\n  left: 100px;\r\n}\r\n\r\n::-webkit-scrollbar-button {\r\n  width: 0px;\r\n  height: 0px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  border-radius: 5px;\r\n  background-color: rgb(165, 165, 165);\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  background-color: rgb(186, 210, 218);\r\n  padding: 20px;\r\n  font-family: 'Karla', sans-serif;\r\n}\r\n\r\nmain {\r\n  position: absolute;\r\n  display: flex;\r\n  box-shadow: 20px 15px 15px rgba(36, 36, 36, 0.2);\r\n  background-color: #F5F5F5;\r\n  height: 650px;\r\n  width: 1200px;\r\n  max-width: 1200px;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  left: 50%;\r\n}\r\n\r\n.header {\r\n  background-color: rgb(228, 228, 228); \r\n  border-bottom: 1px solid rgb(204, 204, 204);\r\n  padding: 15px;\r\n  &_input {\r\n    width: 100%;\r\n    position: relative;\r\n    border: 1px solid rgb(204, 204, 204);\r\n    margin-top: 20px;\r\n    padding: 10px;\r\n    font-weight: 500;\r\n    border-radius: 20px;\r\n    outline: none;\r\n    padding-left: 30px;\r\n  }\r\n  &_input-wrapper {\r\n    position: relative;\r\n    .search {\r\n      position: absolute;\r\n      width: 15px;\r\n      left: 10px;\r\n      top: 30px;\r\n      z-index: 1;\r\n    }\r\n  }\r\n}\r\n\r\n//---------------------------- logo\r\n\r\n.logo {\r\n  width: 50px;\r\n  height: 50px;\r\n  max-width:100%;\r\n  \r\n  border-radius: 50%;\r\n}\r\n\r\n\r\n.logo-wrapper {\r\n  display: block;\r\n  position: relative;\r\n  height: 20%;\r\n  \r\n  .mark {\r\n    position: absolute;\r\n    top: 33px;\r\n    left: 37px;\r\n    width: 18px;\r\n  }\r\n}\r\n\r\n//----------------------------\r\n\r\n.chats {\r\n  width: 40%;\r\n  height: 100%;\r\n  overflow: hidden;\r\n  position: relative;\r\n  border-right: 1px solid rgb(204, 204, 204);\r\n\r\n  &-wrapper {\r\n    height: 58%;\r\n    overflow: auto;\r\n  }\r\n\r\n  &-headline {\r\n    padding: 40px 0px 40px 10px;\r\n    height: 20%;\r\n    font-size: 25px;\r\n    font-weight: 500;\r\n    color: rgb(79, 190, 235);\r\n  }\r\n}\r\n\r\n\r\n.chat {\r\n  padding: 20px 0px 20px 10px;\r\n  height: 90px;\r\n  display: flex;\r\n  position: relative;\r\n  border-bottom: 1px solid rgb(204, 204, 204);\r\n  transform: background-color 0.1s;\r\n\r\n  &:hover {\r\n    background-color: rgb(235, 235, 235);\r\n    cursor: pointer;\r\n  }\r\n\r\n  &_info {\r\n    margin-top: 10px;\r\n    margin-left: 20px;\r\n    position: relative;\r\n    letter-spacing: 0.05rem;\r\n    &-message {\r\n      margin: 0;\r\n      color:rgb(128, 128, 128);\r\n      letter-spacing: normal;\r\n      width: 300px;\r\n      -webkit-line-clamp: 1; \r\n      display: -webkit-box; \r\n      -webkit-box-orient: vertical;\r\n      overflow: hidden;\r\n      margin-top: 3px;\r\n      font-size: 13px;\r\n      font-weight: 300;\r\n    }\r\n  }\r\n\r\n  &_date {\r\n    position: absolute;\r\n    top: 30px;\r\n    font-size: 13px;\r\n    font-weight: 300;\r\n    right: 20px;\r\n  }\r\n}\r\n\r\n// ---------------------------- person\r\n\r\n.person {\r\n  width: 60%;\r\n  position: relative;\r\n  &_header {\r\n    display: flex;\r\n    align-items: center;\r\n    padding: 15px;\r\n    background-color: rgb(228, 228, 228); \r\n    border-bottom: 1px solid rgb(204, 204, 204);\r\n  }\r\n\r\n  &_name {\r\n    margin-left: 15px;\r\n    font-size: 18px;\r\n    font-weight: 500;\r\n  }\r\n\r\n  .person_message-list {\r\n    height: 72%;\r\n    overflow: auto;\r\n  }\r\n\r\n  &_send-message {\r\n    position: absolute;\r\n    background-color: rgb(228, 228, 228); \r\n    border-top: 1px solid rgb(204, 204, 204);\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 100%;\r\n    padding: 25px;\r\n  }\r\n}\r\n\r\n.type-message-btn {\r\n  width: 100%;\r\n  padding: 15px;\r\n  outline: none;\r\n  border: 1px solid rgb(204, 204, 204);\r\n  border-radius: 20px;\r\n}\r\n\r\n.type-message-link {\r\n  cursor: pointer;\r\n}\r\n\r\n.type-message-icon {\r\n  position: absolute;\r\n  top: 35px;\r\n  right: 40px;\r\n  height: 25px;\r\n}\r\n\r\n.message-after-load-wrapper {\r\n  width: 60%;\r\n}\r\n\r\n.message-after-load {\r\n  background-color: rgb(204, 204, 204);\r\n  position: absolute;\r\n  left: 70%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  border-radius: 20px;\r\n  padding: 10px;\r\n  transition: all 0.2s;\r\n}\r\n\r\n.message {\r\n  padding: 15px 10px;\r\n  max-width: 70%;\r\n  &_photo {\r\n    width: 50px;\r\n    height: 50px;\r\n  }\r\n  &_text {\r\n    color: white;\r\n    background-color: rgb(48, 47, 47);\r\n    padding: 13px 10px;\r\n    border-radius: 20px;\r\n    margin: 0;\r\n    margin-left: 10px;\r\n  }\r\n  &_date {\r\n    color: rgb(128, 128, 128);\r\n    font-size: 13px;\r\n    font-weight: 300;\r\n    margin-left: 65px;\r\n  }\r\n}\r\n\r\n.message-wrapper {\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.message-send {\r\n  margin-left: auto;\r\n  text-align: right;\r\n  padding: 15px 10px;\r\n  max-width: 70%;\r\n}\r\n\r\n.message_date-send {\r\n  color: rgb(128, 128, 128);\r\n  font-size: 13px;\r\n  font-weight: 300;\r\n  margin-right: 5px;\r\n}\r\n\r\n.message-wrapper-send {\r\n  display: flex;\r\n  justify-content: end;\r\n  text-align: right;\r\n}\r\n\r\n.message_text-send {\r\n  color: black;\r\n  margin-left: auto;\r\n  background-color: rgb(221, 221, 221);\r\n  padding: 13px 10px;\r\n  border-radius: 20px;\r\n  margin: 0;\r\n  margin-bottom: 5px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -161,6 +556,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "* {\n  box-sizing: border-box;\n}\n\nb
   \*****************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /*
@@ -266,50 +662,13 @@ module.exports = function (cssWithMappingToString) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
-/*!********************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
-  \********************************************************/
-/***/ ((module) => {
-
-
-
-module.exports = function (url, options) {
-  if (!options) {
-    options = {};
-  }
-
-  if (!url) {
-    return url;
-  }
-
-  url = String(url.__esModule ? url.default : url); // If url is already wrapped in quotes, remove them
-
-  if (/^['"].*['"]$/.test(url)) {
-    url = url.slice(1, -1);
-  }
-
-  if (options.hash) {
-    url += options.hash;
-  } // Should url be wrapped?
-  // See https://drafts.csswg.org/css-values-3/#urls
-
-
-  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
-    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
-  }
-
-  return url;
-};
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/runtime/sourceMaps.js":
 /*!************************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/sourceMaps.js ***!
   \************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (item) {
@@ -341,6 +700,7 @@ module.exports = function (item) {
   \*************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 /**
  * @license React
  * react-dom.development.js
@@ -30116,6 +30476,7 @@ if (
   \******************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 
 var m = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -30148,6 +30509,7 @@ if (false) {} else {
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 function checkDCE() {
@@ -30191,6 +30553,7 @@ if (false) {} else {
   \*****************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
+"use strict";
 /* module decorator */ module = __webpack_require__.nmd(module);
 /**
  * @license React
@@ -32939,10 +33302,775 @@ if (
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "./node_modules/react/cjs/react.development.js");
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  define(IteratorPrototype, iteratorSymbol, function () {
+    return this;
+  });
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = GeneratorFunctionPrototype;
+  define(Gp, "constructor", GeneratorFunctionPrototype);
+  define(GeneratorFunctionPrototype, "constructor", GeneratorFunction);
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      define(prototype, method, function(arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
+    return this;
+  });
+  exports.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  define(Gp, toStringTagSymbol, "Generator");
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  define(Gp, iteratorSymbol, function() {
+    return this;
+  });
+
+  define(Gp, "toString", function() {
+    return "[object Generator]";
+  });
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : 0
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, in modern engines
+  // we can explicitly access globalThis. In older engines we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  if (typeof globalThis === "object") {
+    globalThis.regeneratorRuntime = runtime;
+  } else {
+    Function("r", "regeneratorRuntime = r")(runtime);
+  }
 }
 
 
@@ -32954,6 +34082,7 @@ if (false) {} else {
   \*************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 /**
  * @license React
  * scheduler.development.js
@@ -33598,6 +34727,7 @@ if (
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (false) {} else {
@@ -33613,6 +34743,7 @@ if (false) {} else {
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -33667,6 +34798,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \****************************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var stylesInDOM = [];
@@ -33780,6 +34912,7 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var memo = {};
@@ -33828,6 +34961,7 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -33848,6 +34982,7 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -33869,6 +35004,7 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -33948,6 +35084,7 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -33973,7 +35110,107 @@ module.exports = styleTagTransform;
   \*******************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "avatar.png";
+
+/***/ }),
+
+/***/ "./src/assets/avatar0.png":
+/*!********************************!*\
+  !*** ./src/assets/avatar0.png ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "avatar0.png";
+
+/***/ }),
+
+/***/ "./src/assets/avatar1.png":
+/*!********************************!*\
+  !*** ./src/assets/avatar1.png ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "avatar1.png";
+
+/***/ }),
+
+/***/ "./src/assets/avatar2.png":
+/*!********************************!*\
+  !*** ./src/assets/avatar2.png ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "avatar2.png";
+
+/***/ }),
+
+/***/ "./src/assets/avatar3.png":
+/*!********************************!*\
+  !*** ./src/assets/avatar3.png ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "avatar3.png";
+
+/***/ }),
+
+/***/ "./src/assets/avatar4.png":
+/*!********************************!*\
+  !*** ./src/assets/avatar4.png ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "avatar4.png";
+
+/***/ }),
+
+/***/ "./src/assets/avatar5.png":
+/*!********************************!*\
+  !*** ./src/assets/avatar5.png ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "avatar5.png";
+
+/***/ }),
+
+/***/ "./src/assets/check.png":
+/*!******************************!*\
+  !*** ./src/assets/check.png ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "check.png";
+
+/***/ }),
+
+/***/ "./src/assets/paper-plane.png":
+/*!************************************!*\
+  !*** ./src/assets/paper-plane.png ***!
+  \************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "paper-plane.png";
+
+/***/ }),
+
+/***/ "./src/assets/profile-avatar.png":
+/*!***************************************!*\
+  !*** ./src/assets/profile-avatar.png ***!
+  \***************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "profile-avatar.png";
 
 /***/ }),
 
@@ -33983,7 +35220,78 @@ module.exports = __webpack_require__.p + "avatar.png";
   \*******************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "search.png";
+
+/***/ }),
+
+/***/ "./node_modules/nanoid/index.browser.js":
+/*!**********************************************!*\
+  !*** ./node_modules/nanoid/index.browser.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "customAlphabet": () => (/* binding */ customAlphabet),
+/* harmony export */   "customRandom": () => (/* binding */ customRandom),
+/* harmony export */   "nanoid": () => (/* binding */ nanoid),
+/* harmony export */   "random": () => (/* binding */ random),
+/* harmony export */   "urlAlphabet": () => (/* reexport safe */ _url_alphabet_index_js__WEBPACK_IMPORTED_MODULE_0__.urlAlphabet)
+/* harmony export */ });
+/* harmony import */ var _url_alphabet_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./url-alphabet/index.js */ "./node_modules/nanoid/url-alphabet/index.js");
+
+let random = bytes => crypto.getRandomValues(new Uint8Array(bytes))
+let customRandom = (alphabet, defaultSize, getRandom) => {
+  let mask = (2 << (Math.log(alphabet.length - 1) / Math.LN2)) - 1
+  let step = -~((1.6 * mask * defaultSize) / alphabet.length)
+  return (size = defaultSize) => {
+    let id = ''
+    while (true) {
+      let bytes = getRandom(step)
+      let j = step
+      while (j--) {
+        id += alphabet[bytes[j] & mask] || ''
+        if (id.length === size) return id
+      }
+    }
+  }
+}
+let customAlphabet = (alphabet, size = 21) =>
+  customRandom(alphabet, size, random)
+let nanoid = (size = 21) =>
+  crypto.getRandomValues(new Uint8Array(size)).reduce((id, byte) => {
+    byte &= 63
+    if (byte < 36) {
+      id += byte.toString(36)
+    } else if (byte < 62) {
+      id += (byte - 26).toString(36).toUpperCase()
+    } else if (byte > 62) {
+      id += '-'
+    } else {
+      id += '_'
+    }
+    return id
+  }, '')
+
+
+/***/ }),
+
+/***/ "./node_modules/nanoid/url-alphabet/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/nanoid/url-alphabet/index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "urlAlphabet": () => (/* binding */ urlAlphabet)
+/* harmony export */ });
+const urlAlphabet =
+  'useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict'
+
 
 /***/ })
 
@@ -34015,9 +35323,6 @@ module.exports = __webpack_require__.p + "search.png";
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
@@ -34101,36 +35406,11 @@ module.exports = __webpack_require__.p + "search.png";
 /******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"bundle": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		// no on chunks loaded
-/******/ 		
-/******/ 		// no jsonp function
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
@@ -34150,4 +35430,4 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createEle
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlefe9f23780bafbc3e3b82.js.map
+//# sourceMappingURL=bundle6ca27314ce382d357af8.js.map
